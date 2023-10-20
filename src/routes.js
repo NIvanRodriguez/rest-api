@@ -5,4 +5,5 @@ export const router = Router();
 // creamos las rutas
 router.get('/libros', libro.getAll);
 router.get('/libro', libro.getOne);
-
+router.post('/libro', libro.add);
+ 
