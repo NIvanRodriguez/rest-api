@@ -10,12 +10,17 @@ class LibrosController{
     
     }
 async getOne(req, res){
-    //Este método se encarga de manejar las solicitudes GET para obtener un libro específico
+ //Este método se encarga de manejar las solicitudes GET para obtener un libro específico
+  try{
     const libro = req.body;
     const [result] = await pool.query(`SELECT * FROM libros WHERE id =(?)`, [libro.id]);
     res.json(result);
+  }catch (e){
+    console.log(e);
+  }  
 }
 async add(req, res) {
+    //maneja solicitudes HTTP para agregar un nuevo libro a la base de datos.
     try {
         const libro = req.body;
         const [result] = await pool.query(`INSERT INTO libros (nombre, autor, categoria, año_publicacion, isbn) VALUES (?, ?, ?, ?, ?)`, [libro.nombre, libro.autor, libro.categoria, libro.año_publicacion, libro.isbn]);
@@ -24,7 +29,16 @@ async add(req, res) {
         console.log(e);
     }
 }
-
+  async update(req,res){
+    // Este metodo nos permite actualizar los libros en la base de datos
+    try{
+        const libro = req.body;
+        const[result] = await pool.query(`UPDATE libros SET nombre=?, autor=?, categoria=?, año_publicacion=?, isbn=? WHERE id=?`,[libro.nombre, libro.autor, libro.categoria, libro.año_publicacion, libro.isbn, libro.id]);
+        res.json({"Registro actualizado":result.changedRows});
+    } catch (e){
+        console.log(e);
+    }
+  }
 
 
 }
