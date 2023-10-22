@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-10-2023 a las 00:04:55
+-- Tiempo de generación: 22-10-2023 a las 03:51:11
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -34,7 +34,7 @@ CREATE TABLE `libros` (
   `nombre` varchar(30) NOT NULL,
   `autor` varchar(30) NOT NULL,
   `categoria` varchar(30) NOT NULL,
-  `año-publicacion` date NOT NULL,
+  `año_publicacion` date NOT NULL,
   `isbn` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -42,8 +42,7 @@ CREATE TABLE `libros` (
 -- Volcado de datos para la tabla `libros`
 --
 
-INSERT INTO `libros` (`id`, `nombre`, `autor`, `categoria`, `año-publicacion`, `isbn`) VALUES
-(1, '100 años de soledad', 'Gabriel García Marquez', 'Novela', '1967-06-05', ' 978014003524'),
+INSERT INTO `libros` (`id`, `nombre`, `autor`, `categoria`, `año_publicacion`, `isbn`) VALUES
 (2, 'Del amor y otros demonios', 'Gabriel García Marquez', 'Novela', '1994-04-06', ' 997803074753'),
 (3, 'Harry Potter y la piedra filos', ' J. K. Rowling', 'Fantasia', '1997-06-26', '9780545582889'),
 (4, 'Harry Potter y la cámara secre', ' J. K. Rowling', 'Fantasia', '1998-07-02', '9780439420105'),
@@ -68,7 +67,7 @@ ALTER TABLE `libros`
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
