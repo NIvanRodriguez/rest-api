@@ -39,7 +39,17 @@ async add(req, res) {
         console.log(e);
     }
   }
-
+  async deleteLibro(req, res) {
+    // Este método nos permite eliminar un libro de la base de datos por medio del ISBN
+    try {
+      const libro = req.body;
+      const [result] = await pool.query('DELETE FROM libros WHERE isbn = ?', [libro.isbn]);
+      res.json({ "Registros Eliminados": result.affectedRows });
+    } catch (e) {
+      console.log(e);
+      res.status(500).json({ error: 'Error al eliminar el libro' });
+    }
+  }
 
 }
 
