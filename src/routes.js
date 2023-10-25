@@ -4,7 +4,7 @@ import {libro} from "./controller.js";
 export const router = Router();
 // creamos las rutas
 router.get('/libros', libro.getAll);
-router.get('/libro/:id', libro.getOne)
-router.post('/libro', libro.add);
-router.put('/libro/:id',libro.update);
-router.delete('/libro/:isbn', libro.deleteLibro);
+router.get('/libro/:isbn', libro.getOne)
+router.post('/cargar', libro.add);
+router.put('/cambiar/:isbn',libro.update);
+router.delete('/eliminar/:isbn', libro.deleteLibro);
